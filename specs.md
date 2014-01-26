@@ -27,9 +27,9 @@ Instructions
 
 Encoding
 -----
-16-bit hexadecimal numbers
-1st digit (4 bits) is the instruction code number.
-Rest (3) digits are used as operands.
+16-bit hexadecimal numbers.  
+1st digit (4 bits) is the instruction code number.  
+Remaining (3) digits are used as operands.
 
 Implementation
 -----
