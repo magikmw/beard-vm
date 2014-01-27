@@ -27,7 +27,8 @@ LINKS			:=
 LIBRARIES 		:=
 
 # Source files, without the path (assumed only one source dir exists)
-SRC_FILES		:= 	
+SRC_FILES		:= 	BeardMain.c \
+					Functions.c
 
 # Directory pathnames
 OBJ_DIR			:= 	obj/
