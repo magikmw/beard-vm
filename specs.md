@@ -11,9 +11,9 @@ The Machine
 Addressing
 -----
 
-Register numbers begin with 'r': r0, r1, r2, r3.
-Immediate values begin with '#': #100, #200, #2, #256.
-Memory addresses begin with '@': @1000, @1004.
+Register numbers begin with 'r': r0, r1, r2, r3.  
+Immediate values begin with '#': #100, #200, #2, #256.  
+Memory addresses begin with '@': @1000, @1004.  
 
 Instructions
 -----
