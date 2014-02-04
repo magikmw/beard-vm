@@ -2,21 +2,25 @@ Beard VM Specifications
 =====
 This will be updated as I go. Rewrites of the whole thing should be expected.
 
-The Machine
+Summary
 -----
 
-* 16-bit
-* 4 registers (0-3)
+* 16 bit words
+* 0x20000 words of RAM
+* 8 registers (A, B, C, X, Y, Z, I, J)
+* program counter (PC)
 
 Addressing
 -----
 
-Register numbers begin with 'r': r0, r1, r2, r3.  
+Register numbers begin with 'r': r0, r1, r2, r3...  
 Immediate values begin with '#': #100, #200, #2, #256.  
 Memory addresses begin with '@': @1000, @1004.  
 
 Instructions
 -----
+
+Instructions are 1-3 words long, fully defined by the first word.
 
 [code] [instruction name] [operands]
 

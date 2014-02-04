@@ -1,0 +1,15 @@
+Beard Object Files
+extension: .bo
+
+Contains the binary data read by the VM.
+
+Header:
+8-byte signature
+0x89 0x42 0x45 0x41 0x42 0x4f 0x0a 0x00
+89 
+B E A
+B O
+10 00 - version (1.0.0.0)
+
+The rest of the file containes hex coded instructions in byte pairs.
+Little endianness is assumed from that point.

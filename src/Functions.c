@@ -22,6 +22,33 @@ int fetch( void ) {
     return prog[ pc++ ];
 }
 
+int load( const char * filename, int* prog ) {
+    unsigned char buffer[8];
+
+    FILE* progfile = fopen( filename, "r" );
+    if( progfile == NULL ) {
+        return 1;
+    }
+
+    fread( &buffer, 1, 8, progfile );
+
+    unsigned char header[] = { 0x89, 0x42, 0x45, 0x41, 0x42, 0x4f, 0x0a, 0x00 };
+    if( memcmp(buffer, header, 8 ) ){
+        printf("Error: Provided file is not a Beard Object type\n");
+        return 1;
+    }
+
+    int read = -1;
+
+    for( int i = 0; read != 0; i++ ){
+        read = fread( prog+i, 1*2, 1, progfile );
+    }
+
+    fclose( progfile );
+
+    return 0;
+}
+
 void decode( int instr ) {
     printf("instr: %04X\n", instr);
 
