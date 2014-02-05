@@ -24,7 +24,8 @@
 #include "stdbool.h"
 
 /* CONSTANTS */
-#define NUM_REGS 4 // Number of registers
+#define NUM_REGS 8 // Number of registers
+#define ADDRESS_SIZE 131072 // Addressable memory words [0x20000]
 
 /* TYPES */
 typedef struct b_instruction b_instruction; // holds the decoded instruction
@@ -39,9 +40,8 @@ struct b_instruction {
 
 /* VARIABLES */
 int regs[ NUM_REGS ];
-int prog[ 10 ];
+int mem[ ADDRESS_SIZE ];
 int pc;
-bool running;
 
 b_instruction c_i; // current instruction
 

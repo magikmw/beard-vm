@@ -19,10 +19,10 @@
 #include "Functions.h"
 
 int fetch( void ) {
-    return prog[ pc++ ];
+    return mem[ pc++ ];
 }
 
-int load( const char * filename, int* prog ) {
+int load( const char * filename, int* mem ) {
     unsigned char buffer[8];
 
     FILE* progfile = fopen( filename, "r" );
@@ -41,7 +41,8 @@ int load( const char * filename, int* prog ) {
     int read = -1;
 
     for( int i = 0; read != 0; i++ ){
-        read = fread( prog+i, 1*2, 1, progfile );
+        read = fread( mem+i, 1*2, 1, progfile );
+        // printf("read: <%04X>\n", *mem+i);
     }
 
     fclose( progfile );
@@ -59,11 +60,11 @@ void decode( int instr ) {
     c_i.imv = (instr & 0xFF  );
 }
 
-void eval( void ) {
+void eval( bool* running ) {
     switch( c_i.code ) {
         case 0: // halt
             printf( "halt\n" );
-            running = 0;
+            *running = false;
             break;
         case 1: // load
             printf ( "load r%d $%d\n", c_i.op1, c_i.imv );
@@ -77,11 +78,13 @@ void eval( void ) {
 }
 
 void run( void ) {
+    bool running = true;
+
     while ( running ){
         showRegs();
         int instr = fetch();
         decode( instr );
-        eval();
+        eval( &running );
     }
     showRegs();
 }

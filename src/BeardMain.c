@@ -25,13 +25,11 @@ int regs[ NUM_REGS ];
 // 2. load r1 #200
 // 3. add r2 r0 r1
 // 4. halt
-// int prog[10] = { 0x1064, 0x11C8, 0x2201, 0x0000 };
+// int mem[10] = { 0x1064, 0x11C8, 0x2201, 0x0000 };
 
-int prog[ 10 ] = { 0x0000 }; // set the first word to halt in case of an error
+int mem[ ADDRESS_SIZE ] = { 0x0000 }; // set the first word to halt in case of an error
 
 int pc = 0; // set the program counter
-
-bool running = true;
 
 int main( int argc, char* argv[] ) {
 
@@ -50,7 +48,7 @@ int main( int argc, char* argv[] ) {
         return 1;
     }
 
-    if( load( programfile, prog ) == 1 ) {
+    if( load( programfile, mem ) == 1 ) {
         return 1;
     }
 

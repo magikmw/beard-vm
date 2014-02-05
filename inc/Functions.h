@@ -22,10 +22,10 @@
 #include "Globals.h"
 
 int fetch( void ); // Return the next instruction from the program
-int load( const char * filename, int* prog ); // Load the program from file
+int load( const char* filename, int* mem ); // Load the program from file
 void decode( int instr ); // Decode instructions into temp subregisters
-void eval( void ); // execute given instruction
+void eval( bool* running ); // execute given instruction
 void run( void );
-void showRegs( void );
+void showRegs( void ); // display the contents of the registry array
 
 #endif
