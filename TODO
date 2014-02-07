@@ -1,13 +1,13 @@
 TODO:
 
 - [XXX] Use own types of proper size (16-bit words)
-- Proper cli arguments handling
 - Rework the function errors handling
 - Compiler (separate repo?)
 - Memory
 - Flow (program copy into RAM, etc)
-- Drop .md for the specs, seriously
 
 DONE:
 
 - Function to retrieve the program from a binary file
+- Drop .md for the specs, seriously
+- Proper cli arguments handling (just clean it up)

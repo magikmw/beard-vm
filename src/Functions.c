@@ -27,6 +27,7 @@ int load( const char * filename, int* mem ) {
 
     FILE* progfile = fopen( filename, "r" );
     if( progfile == NULL ) {
+        printf("Error: Provided filename (%s) is not a file.\n", filename);
         return 1;
     }
 
@@ -34,7 +35,7 @@ int load( const char * filename, int* mem ) {
 
     unsigned char header[] = { 0x89, 0x42, 0x45, 0x41, 0x42, 0x4f, 0x0a, 0x00 };
     if( memcmp(buffer, header, 8 ) ){
-        printf("Error: Provided file is not a Beard Object type\n");
+        printf("Error: Provided file (%s) is not a Beard Object type.\n", filename);
         return 1;
     }
 

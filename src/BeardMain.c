@@ -33,25 +33,30 @@ int pc = 0; // set the program counter
 
 int main( int argc, char* argv[] ) {
 
-    const char* programfile;
+    const char* programfilename;
 
     // Parse commandline arguments
     for(int i = 1; i < argc; i++){
-        // printf("arg %i: %s\n", i, argv[i]);
-        if( strcmp( argv[i], "-f" ) == 0 ){
-            programfile = argv[i+1];
+        // printf("arg %i: %s %i\n", i, argv[i], strcmp( argv[i], "--file"));
+        if( strcmp( argv[i], "-f") == 0 || strcmp( argv[i], "--file") == 0 ) { // -f [load file]
+            programfilename = argv[++i];
+        }
+        else {
+            printf("No known arguments provided.\n");
+            return 1;
         }
     }
 
-    if( programfile == NULL ) {
+    if( programfilename == NULL ) { // check if there is a filename given
         printf("Error: No filename given\n");
         return 1;
     }
 
-    if( load( programfile, mem ) == 1 ) {
-        return 1;
+    if( load( programfilename, mem ) == 1 ) { // attempt at loading the file
+        return 1; // error handling/reporting within the function
     }
 
     run();
+
     return 0;
 }

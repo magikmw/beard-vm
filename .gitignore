@@ -11,3 +11,6 @@
 
 # Binaries
 bin/*
+
+# Debugging leftovers
+gmon.out
